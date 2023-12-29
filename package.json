@@ -1,0 +1,33 @@
+{
+  "name": "@omg/cat.ts",
+  "version": "0.0.1",
+  "author": "Veksa",
+  "license": "MIT",
+  "packageManager": "yarn@4.0.2",
+  "engines": {
+    "node": ">=18.16.0"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "compile": "tsc --noEmit",
+    "build:cjs": "tsc -p tsconfig.build.json --outDir lib -d -t es5",
+    "build:es": "tsc -p tsconfig.build.json --outDir es -m es6",
+    "build": "yarn build:cjs && yarn build:es"
+  },
+  "files": [
+    "lib/",
+    "es/"
+  ],
+  "sideEffects": false,
+  "devDependencies": {
+    "@types/animejs": "3.1.12",
+    "@types/node": "20.10.5",
+    "tslib": "2.6.2",
+    "typescript": "5.3.3"
+  },
+  "dependencies": {
+    "animejs": "3.2.2"
+  }
+}
