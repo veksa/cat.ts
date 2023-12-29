@@ -5,18 +5,6 @@ __metadata:
   version: 8
   cacheKey: 10
 
-"@omg/cat.js@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@omg/cat.js@workspace:."
-  dependencies:
-    "@types/animejs": "npm:3.1.12"
-    "@types/node": "npm:20.10.5"
-    animejs: "npm:3.2.2"
-    tslib: "npm:2.6.2"
-    typescript: "npm:5.3.3"
-  languageName: unknown
-  linkType: soft
-
 "@types/animejs@npm:3.1.12":
   version: 3.1.12
   resolution: "@types/animejs@npm:3.1.12"
@@ -32,6 +20,18 @@ __metadata:
   checksum: 4a378428d2c9f692b19801a5a3d20dc4c0ad5d4a3d103350f8b401af439941a9aa5efeadc8eb9db13c66c620318bc7f336abfc8934f82fd32c4a689d85068c6f
   languageName: node
   linkType: hard
+
+"@veksa/cat.ts@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@veksa/cat.ts@workspace:."
+  dependencies:
+    "@types/animejs": "npm:3.1.12"
+    "@types/node": "npm:20.10.5"
+    animejs: "npm:3.2.2"
+    tslib: "npm:2.6.2"
+    typescript: "npm:5.3.3"
+  languageName: unknown
+  linkType: soft
 
 "animejs@npm:3.2.2":
   version: 3.2.2

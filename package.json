@@ -1,7 +1,12 @@
 {
-  "name": "@omg/cat.ts",
+  "name": "@veksa/cat.ts",
   "version": "0.0.1",
   "author": "Veksa",
+  "description": "meow",
+  "keywords": [
+    "meow",
+    "meow"
+  ],
   "license": "MIT",
   "packageManager": "yarn@4.0.2",
   "engines": {
@@ -16,11 +21,22 @@
     "build:es": "tsc -p tsconfig.build.json --outDir es -m es6",
     "build": "yarn build:cjs && yarn build:es"
   },
+  "directories": {
+    "lib": "lib"
+  },
   "files": [
     "lib/",
     "es/"
   ],
   "sideEffects": false,
+  "homepage": "https://github.com/veksa/cat.ts#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veksa/cat.ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/veksa/cat.ts/issues"
+  },
   "devDependencies": {
     "@types/animejs": "3.1.12",
     "@types/node": "20.10.5",
