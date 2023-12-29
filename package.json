@@ -1,6 +1,6 @@
 {
   "name": "@veksa/cat.ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Veksa",
   "description": "meow",
   "keywords": [
@@ -17,8 +17,9 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "compile": "tsc --noEmit",
-    "build:cjs": "tsc -p tsconfig.build.json --outDir lib -d -t es5",
-    "build:es": "tsc -p tsconfig.build.json --outDir es -m es6",
+    "copy-files": "shx cp -R src/resources es/resources && shx cp -R src/resources lib/resources",
+    "build:cjs": "tsc -p tsconfig.build.json --outDir lib -d -t es5 && yarn copy-files",
+    "build:es": "tsc -p tsconfig.build.json --outDir es -m es6 && yarn copy-files",
     "build": "yarn build:cjs && yarn build:es"
   },
   "directories": {
@@ -40,6 +41,7 @@
   "devDependencies": {
     "@types/animejs": "3.1.12",
     "@types/node": "20.10.5",
+    "shx": "0.3.4",
     "tslib": "2.6.2",
     "typescript": "5.3.3"
   },
