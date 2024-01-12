@@ -159,23 +159,23 @@ const position = {
 };
 
 const getWalkImage = ({catNumber, walkType, walkSpeed}) => {
-    return require(`./resources/${catNumber % maxCatNumber}/0_GIF_walk_${walkType}_${walkSpeed}.gif`);
+    return `https://veksa.github.io/cat.ts/${catNumber % maxCatNumber}/0_GIF_walk_${walkType}_${walkSpeed}.gif`;
 };
 
 const getTurnImage = ({catNumber, walkType}) => {
-    return require(`./resources/${catNumber % maxCatNumber}/0_GIF_turn_${walkType}.gif`);
+    return `https://veksa.github.io/cat.ts/${catNumber % maxCatNumber}/0_GIF_turn_${walkType}.gif`;
 };
 
 const getSitImage = ({catNumber, sitPattern, sitDuration, walkType}) => {
-    return require(`./resources/${catNumber % maxCatNumber}/0_GIF_sit${sitPattern}_${sitDuration}_${walkType}.gif`);
+    return `https://veksa.github.io/cat.ts/${catNumber % maxCatNumber}/0_GIF_sit${sitPattern}_${sitDuration}_${walkType}.gif`;
 };
 
 const getJumpImage = ({catNumber, jumpPattern}) => {
-    return require(`./resources/${catNumber % maxCatNumber}/0_GIF_jump${jumpPattern}.gif`);
+    return `https://veksa.github.io/cat.ts/${catNumber % maxCatNumber}/0_GIF_jump${jumpPattern}.gif`;
 };
 
 const getStayImage = ({catNumber, stayPattern, walkType}) => {
-    return require(`./resources/${catNumber % maxCatNumber}/0_GIF_stay${stayPattern}_${walkType}.gif`);
+    return `https://veksa.github.io/cat.ts/${catNumber % maxCatNumber}/0_GIF_stay${stayPattern}_${walkType}.gif`;
 };
 
 const deltaDistance = {w1: .05, w2: .07};
