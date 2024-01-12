@@ -3,7 +3,7 @@ import animejs from 'animejs';
 const s = 500;
 const r = s / 3e3;
 
-let catNumber = 0;
+let catNumber = -1;
 const maxCatNumber = 10;
 
 let currentClientX: number;
@@ -158,24 +158,30 @@ const position = {
     },
 };
 
+const cropCatNumber = (num: number) => {
+    const croppedNumber = num % maxCatNumber;
+
+    return croppedNumber + 1;
+}
+
 const getWalkImage = ({catNumber, walkType, walkSpeed}) => {
-    return `https://veksa.github.io/cat.ts/${catNumber % maxCatNumber}/0_GIF_walk_${walkType}_${walkSpeed}.gif`;
+    return `https://veksa.github.io/cat.ts/${cropCatNumber(catNumber)}/0_GIF_walk_${walkType}_${walkSpeed}.gif`;
 };
 
 const getTurnImage = ({catNumber, walkType}) => {
-    return `https://veksa.github.io/cat.ts/${catNumber % maxCatNumber}/0_GIF_turn_${walkType}.gif`;
+    return `https://veksa.github.io/cat.ts/${cropCatNumber(catNumber)}/0_GIF_turn_${walkType}.gif`;
 };
 
 const getSitImage = ({catNumber, sitPattern, sitDuration, walkType}) => {
-    return `https://veksa.github.io/cat.ts/${catNumber % maxCatNumber}/0_GIF_sit${sitPattern}_${sitDuration}_${walkType}.gif`;
+    return `https://veksa.github.io/cat.ts/${cropCatNumber(catNumber)}/0_GIF_sit${sitPattern}_${sitDuration}_${walkType}.gif`;
 };
 
 const getJumpImage = ({catNumber, jumpPattern}) => {
-    return `https://veksa.github.io/cat.ts/${catNumber % maxCatNumber}/0_GIF_jump${jumpPattern}.gif`;
+    return `https://veksa.github.io/cat.ts/${cropCatNumber(catNumber)}/0_GIF_jump${jumpPattern}.gif`;
 };
 
 const getStayImage = ({catNumber, stayPattern, walkType}) => {
-    return `https://veksa.github.io/cat.ts/${catNumber % maxCatNumber}/0_GIF_stay${stayPattern}_${walkType}.gif`;
+    return `https://veksa.github.io/cat.ts/${cropCatNumber(catNumber)}/0_GIF_stay${stayPattern}_${walkType}.gif`;
 };
 
 const deltaDistance = {w1: .05, w2: .07};
@@ -856,7 +862,7 @@ const startCat = async (cat) => {
 const makeCat = () => {
     let initialPosition = 0;
 
-    if (catNumber > 1) {
+    if (catNumber > 0) {
         initialPosition = Math.random() < .5
             ? -500
             : document.body.clientWidth + s;
