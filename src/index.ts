@@ -4,6 +4,7 @@ const s = 500;
 const r = s / 3e3;
 
 let catNumber = 0;
+const maxCatNumber = 10;
 
 let currentClientX: number;
 let currentClientY: number;
@@ -158,23 +159,23 @@ const position = {
 };
 
 const getWalkImage = ({catNumber, walkType, walkSpeed}) => {
-    return require(`./resources/${catNumber}/0_GIF_walk_${walkType}_${walkSpeed}.gif`);
+    return require(`./resources/${catNumber % maxCatNumber}/0_GIF_walk_${walkType}_${walkSpeed}.gif`);
 };
 
 const getTurnImage = ({catNumber, walkType}) => {
-    return require(`./resources/${catNumber}/0_GIF_turn_${walkType}.gif`);
+    return require(`./resources/${catNumber % maxCatNumber}/0_GIF_turn_${walkType}.gif`);
 };
 
 const getSitImage = ({catNumber, sitPattern, sitDuration, walkType}) => {
-    return require(`./resources/${catNumber}/0_GIF_sit${sitPattern}_${sitDuration}_${walkType}.gif`);
+    return require(`./resources/${catNumber % maxCatNumber}/0_GIF_sit${sitPattern}_${sitDuration}_${walkType}.gif`);
 };
 
 const getJumpImage = ({catNumber, jumpPattern}) => {
-    return require(`./resources/${catNumber}/0_GIF_jump${jumpPattern}.gif`);
+    return require(`./resources/${catNumber % maxCatNumber}/0_GIF_jump${jumpPattern}.gif`);
 };
 
 const getStayImage = ({catNumber, stayPattern, walkType}) => {
-    return require(`./resources/${catNumber}/0_GIF_stay${stayPattern}_${walkType}.gif`);
+    return require(`./resources/${catNumber % maxCatNumber}/0_GIF_stay${stayPattern}_${walkType}.gif`);
 };
 
 const deltaDistance = {w1: .05, w2: .07};
@@ -452,7 +453,7 @@ const startCat = async (cat) => {
                     movableObject = turnActionObject;
                 }
                 const walkActionObject = getWalkObject({
-                    catNumber: catNumber,
+                    catNumber,
                     direction: 'right',
                     walkType,
                     walkSpeed,
@@ -660,7 +661,7 @@ const startCat = async (cat) => {
                 const sitDuration = getSitDuration();
 
                 const nextObject = getSitObject({
-                    catNumber: catNumber,
+                    catNumber,
                     pattern: 2,
                     direction: 'right',
                     zPositionWidthRate,
@@ -685,7 +686,7 @@ const startCat = async (cat) => {
                 const sitDuration = getSitDuration();
 
                 const nextObject = getSitObject({
-                    catNumber: catNumber,
+                    catNumber,
                     pattern: 2,
                     direction: 'left',
                     zPositionWidthRate,
@@ -710,7 +711,7 @@ const startCat = async (cat) => {
                 const sitDuration = getSitDuration();
 
                 const nextObject = getSitObject({
-                    catNumber: catNumber,
+                    catNumber,
                     pattern: 3,
                     direction: 'right',
                     zPositionWidthRate,
@@ -781,7 +782,7 @@ const startCat = async (cat) => {
             }
             case stay1Left: {
                 const nextObject = getStayObject({
-                    catNumber: catNumber,
+                    catNumber,
                     pattern: 1,
                     direction: 'left',
                     walkType,
